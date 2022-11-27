@@ -32,6 +32,11 @@ Route::put('hospital/{id}', [HospitalController::class, 'update']);
 Route::put('hospital/{id}', [HospitalController::class, 'destroy']);
 Route::get('hospital', [HospitalController::class, 'index']);
 
+Route::post('StentType', [StentTypeController::class, 'store']);
+Route::get('StentType/{id}', [StentTypeController::class, 'show']);
+Route::put('StentType/{id}', [StentTypeController::class, 'update']);
+Route::put('StentType/{id}', [StentTypeController::class, 'destroy']);
+Route::get('StentType', [StentTypeController::class, 'index']);
 
 
 
@@ -52,10 +57,6 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('patient', [PatientController::class, 'index']);
 
     //Stent Type
-    Route::post('StentType', [StentTypeController::class, 'store']);
-    Route::get('StentType/{id}', [StentTypeController::class, 'show']);
-    Route::put('StentType/{id}', [StentTypeController::class, 'update']);
-    Route::put('StentType/{id}', [StentTypeController::class, 'destroy']);
-    Route::get('StentType', [StentTypeController::class, 'index']);
+
     // return $request->user();
 });

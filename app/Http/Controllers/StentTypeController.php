@@ -1,16 +1,18 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
-use App\Interfaces\StentTypeRepositoryInterface;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Interfaces\StentTypeRepositoryInterface as StentType;
 
 class StentTypeController extends Controller
 {
-    private StentTypeRepositoryInterface $stentTypeRepository;
+    private StentType $stentTypeRepository;
 
-    public function __construct(StentTypeRepositoryInterface $stentTypeRepositoryInterface)
+    public function __construct(StentType $stentTypeRepositoryInterface)
     {
         $this->stentTypeRepository = $stentTypeRepositoryInterface;
     }
