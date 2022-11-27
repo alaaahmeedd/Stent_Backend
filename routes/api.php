@@ -6,6 +6,8 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StentTypeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\HospitalController;
+
 
 
 
@@ -22,6 +24,14 @@ use App\Http\Controllers\PatientController;
 
 Route::post('login', [StaffController::class, 'login']);
 Route::post('register', [StaffController::class, 'register']);
+
+// Patient
+Route::post('hospital', [HospitalController::class, 'create']);
+Route::get('hospital/{id}', [HospitalController::class, 'show']);
+Route::put('hospital/{id}', [HospitalController::class, 'update']);
+Route::put('hospital/{id}', [HospitalController::class, 'destroy']);
+Route::get('hospital', [HospitalController::class, 'index']);
+
 
 
 

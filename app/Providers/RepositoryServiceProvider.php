@@ -12,6 +12,9 @@ use App\Repositories\DepartmentRepository;
 use App\Interfaces\PatientRepositoryInterface;
 use App\Repositories\PatientRepository;
 
+use App\Interfaces\HospitalRepositoryInterface;
+use App\Repositories\HospitalRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +29,9 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
 
         $this->app->bind(PatientRepositoryInterface::class, PatientRepository::class);
+
+        $this->app->bind(HospitalRepositoryInterface::class, HospitalRepository::class);
+
 
 
         //
