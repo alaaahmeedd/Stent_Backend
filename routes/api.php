@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepartmentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('department', [DepartmentController::class, 'index']);
+Route::get('department/{id}', [DepartmentController::class, 'show']);
+Route::put('department/{id}', [DepartmentController::class, 'update']);
+Route::put('department/{id}', [DepartmentController::class, 'destroy']);
+Route::post('department', [DepartmentController::class, 'create']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
