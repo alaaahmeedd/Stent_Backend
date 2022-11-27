@@ -6,6 +6,9 @@ use App\Repositories\StaffRepository;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Interfaces\DepartmentRepositoryInterface;
+use App\Repositories\DepartmentRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -17,6 +20,9 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(StaffRepositoryInterface::class, StaffRepository::class);
 
+        $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
+
+        //
     }
 
     /**
