@@ -23,6 +23,12 @@ use App\Http\Controllers\PatientController;
 Route::post('login', [StaffController::class, 'login']);
 Route::post('register', [StaffController::class, 'register']);
 
+Route::post('StentType', [StentTypeController::class, 'store']);
+Route::get('StentType/{id}', [StentTypeController::class, 'show']);
+Route::put('StentType/{id}', [StentTypeController::class, 'update']);
+Route::put('StentType/{id}', [StentTypeController::class, 'destroy']);
+Route::get('StentType', [StentTypeController::class, 'index']);
+
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -42,10 +48,6 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('patient', [PatientController::class, 'index']);
 
     //Stent Type
-    Route::post('StentType', [StentTypeController::class, 'store']);
-    Route::get('StentType/{id}', [StentTypeController::class, 'show']);
-    Route::put('StentType/{id}', [StentTypeController::class, 'update']);
-    Route::put('StentType/{id}', [StentTypeController::class, 'destroy']);
-    Route::get('StentType', [StentTypeController::class, 'index']);
+
     // return $request->user();
 });
