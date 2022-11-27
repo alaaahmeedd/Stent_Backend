@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Interfaces\DepartmentRepositoryInterface;
+use App\Interfaces\StentTypeRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class DepartmentController extends Controller
+class StentTypeController extends Controller
 {
+    private StentTypeRepositoryInterface $stentTypeRepository;
 
-    private DepartmentRepositoryInterface $departmentRepository;
-
-    public function __construct(DepartmentRepositoryInterface $departmentRepository)
+    public function __construct(StentTypeRepositoryInterface $stentTypeRepositoryInterface)
     {
-        $this->departmentRepository = $departmentRepository;
+        $this->stentTypeRepository = $stentTypeRepositoryInterface;
     }
 
     public function index()
     {
         return response()->json([
-            'data' => $this->departmentRepository->getAllDepartment()
+            'data' => $this->stentTypeRepository->getAllStentType()
         ]);
         //
     }
@@ -32,7 +31,7 @@ class DepartmentController extends Controller
 
         return response()->json(
             [
-                'data' => $this->departmentRepository->createDepartment($departmentDetails),
+                'data' => $this->stentTypeRepository->createStentType($departmentDetails),
             ],
             Response::HTTP_CREATED
         );
@@ -42,7 +41,7 @@ class DepartmentController extends Controller
     {
         $departmentId = $request->route('id');
         return response()->json([
-            'data' => $this->departmentRepository->getDepartmentById($departmentId)
+            'data' => $this->stentTypeRepository->getStentTypeById($departmentId)
         ]);
     }
 
@@ -55,7 +54,7 @@ class DepartmentController extends Controller
         ]);
 
         return response()->json([
-            'data' => $this->departmentRepository->updateDepartment($departmentId, $departmentDetails)
+            'data' => $this->stentTypeRepository->updateStentType($departmentId, $departmentDetails)
         ]);
         //
     }
@@ -63,7 +62,7 @@ class DepartmentController extends Controller
     public function destroy(Request $request)
     {
         $departmentId = $request->route('id');
-        $this->departmentRepository->deleteDepartment($departmentId);
+        $this->stentTypeRepository->deleteStentType($departmentId);
 
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
