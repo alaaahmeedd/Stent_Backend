@@ -35,7 +35,7 @@ class DepartmentController extends Controller
 
         return response()->json(
             [
-                'data' => $this->orderRepository->createDepartment($departmentDetails),
+                'data' => $this->departmentRepository->createDepartment($departmentDetails),
             ],
             Response::HTTP_CREATED
         );
@@ -45,7 +45,7 @@ class DepartmentController extends Controller
     {
         $departmentId = $request->route('id');
         return response()->json([
-            'data' => $this->orderRepository->getDepartmentById($departmentId)
+            'data' => $this->departmentRepository->getDepartmentById($departmentId)
         ]);
     }
 
@@ -53,12 +53,12 @@ class DepartmentController extends Controller
     {
         $departmentId = $request->route('id');
         $departmentDetails = $request->only([
-            'client',
-            'details'
+            'name'
+           
         ]);
 
         return response()->json([
-            'data' => $this->orderRepository->updateDepartment($departmentId, $departmentDetails)
+            'data' => $this->departmentRepository->updateDepartment($departmentId, $departmentDetails)
         ]);
         //
     }
@@ -66,7 +66,7 @@ class DepartmentController extends Controller
     public function destroy(Request $request)
     {
         $departmentId = $request->route('id');
-        $this->orderRepository->deleteOrder($departmentId);
+        $this->departmentRepository->deleteDepartment($departmentId);
 
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
