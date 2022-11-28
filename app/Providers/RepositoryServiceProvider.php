@@ -17,6 +17,8 @@ use App\Interfaces\HospitalRepositoryInterface;
 use App\Repositories\HospitalRepository;
 use App\Repositories\StentTypeRepository;
 use App\Interfaces\StentTypeRepositoryInterface;
+use App\Repositories\StentPatientRepository;
+use App\Interfaces\StentPatientRepositoryInterface;
 
 
 
@@ -33,8 +35,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
         $this->app->bind(PatientRepositoryInterface::class, PatientRepository::class);
         $this->app->bind(StentTypeRepositoryInterface::class, StentTypeRepository::class);
-
+        
         $this->app->bind(HospitalRepositoryInterface::class, HospitalRepository::class);
+        $this->app->bind(StentPatientRepositoryInterface::class, StentPatientRepository::class);
+
 
 
 

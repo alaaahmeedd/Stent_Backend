@@ -7,6 +7,8 @@ use App\Http\Controllers\StentTypeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\StentPatientController;
+
 
 
 
@@ -32,11 +34,19 @@ Route::put('hospital/{id}', [HospitalController::class, 'update']);
 Route::put('hospital/{id}', [HospitalController::class, 'destroy']);
 Route::get('hospital', [HospitalController::class, 'index']);
 
+// StentType
 Route::post('StentType', [StentTypeController::class, 'store']);
 Route::get('StentType/{id}', [StentTypeController::class, 'show']);
 Route::put('StentType/{id}', [StentTypeController::class, 'update']);
 Route::put('StentType/{id}', [StentTypeController::class, 'destroy']);
 Route::get('StentType', [StentTypeController::class, 'index']);
+
+// StentPatient
+Route::post('StentPatient', [StentPatientController::class, 'store']);
+Route::get('StentPatient/{id}', [StentPatientController::class, 'show']);
+Route::put('StentPatient/{id}', [StentPatientController::class, 'update']);
+Route::put('StentPatient/{id}', [StentPatientController::class, 'destroy']);
+Route::get('StentPatient', [StentPatientController::class, 'index']);
 
 
 
