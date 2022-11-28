@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StentTypeController;
+use App\Http\Controllers\VisitsController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\HospitalController;
@@ -32,11 +33,6 @@ Route::put('hospital/{id}', [HospitalController::class, 'update']);
 Route::put('hospital/{id}', [HospitalController::class, 'destroy']);
 Route::get('hospital', [HospitalController::class, 'index']);
 
-Route::post('StentType', [StentTypeController::class, 'store']);
-Route::get('StentType/{id}', [StentTypeController::class, 'show']);
-Route::put('StentType/{id}', [StentTypeController::class, 'update']);
-Route::put('StentType/{id}', [StentTypeController::class, 'destroy']);
-Route::get('StentType', [StentTypeController::class, 'index']);
 
 
 
@@ -57,6 +53,20 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('patient', [PatientController::class, 'index']);
 
     //Stent Type
+    Route::post('StentType', [StentTypeController::class, 'store']);
+    Route::get('StentType/{id}', [StentTypeController::class, 'show']);
+    Route::put('StentType/{id}', [StentTypeController::class, 'update']);
+    Route::put('StentType/{id}', [StentTypeController::class, 'destroy']);
+    Route::get('StentType', [StentTypeController::class, 'index']);
+
+    //Visits
+    Route::post('Visits', [VisitsController::class, 'store']);
+    Route::get('Visits/{id}', [VisitsController::class, 'show']);
+    Route::put('Visits/{id}', [VisitsController::class, 'update']);
+    Route::put('Visits/{id}', [VisitsController::class, 'destroy']);
+    Route::get('Visits', [VisitsController::class, 'index']);
+
+
 
     // return $request->user();
 });
