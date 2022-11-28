@@ -25,7 +25,7 @@ class VisitsController extends Controller
     public function create(Request $request)
     {
         $visitsDetails = $request->only([
-            'name',
+            'date-Of-Visit',
         ]);
 
         return response()->json(
