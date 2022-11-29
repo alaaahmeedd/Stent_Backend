@@ -12,4 +12,14 @@ class Department extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function staff()
+    {
+        return $this->hasMany(Staff::class);
+    }
+
+    public function stentTypes()
+    {
+        return $this->hasMany(StentType::class);
+    }
 }

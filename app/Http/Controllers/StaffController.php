@@ -29,6 +29,8 @@ class StaffController extends Controller
     {
         $data = $request->only('f_name', 'l_name' , 'email', 'password', 'birth_date', 'phone', 'position', 'is_admin');
         $validator = Validator::make($data, [
+            'department_id' => 'required',
+            'hospital_id ' => 'required',
             'f_name' => 'required|string',
             'l_name' => 'required|string',
             'email' => 'required|email|unique:staff',

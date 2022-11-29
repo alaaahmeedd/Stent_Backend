@@ -25,7 +25,8 @@ class VisitsController extends Controller
     public function create(Request $request)
     {
         $visitsDetails = $request->only([
-            'date-Of-Visit',
+            'patient_id',
+            'date_Of_visit',
         ]);
 
         return response()->json(
@@ -48,7 +49,8 @@ class VisitsController extends Controller
     {
         $visitsId = $request->route('id');
         $visitsDetails = $request->only([
-            'name'
+            'patient_id',
+            'date_Of_visit',
 
         ]);
 

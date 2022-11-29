@@ -27,7 +27,9 @@ class StentTypeController extends Controller
     public function create(Request $request)
     {
         $departmentDetails = $request->only([
+            'department_id',
             'name',
+            'days_left'
         ]);
 
 
@@ -51,7 +53,9 @@ class StentTypeController extends Controller
     {
         $departmentId = $request->route('id');
         $departmentDetails = $request->only([
-            'name'
+            'department_id',
+            'name',
+            'days_left'
 
         ]);
 

@@ -15,8 +15,11 @@ class CreateStentPatientsTable extends Migration
     {
         Schema::create('stent_patients', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('stentType_id');
+            // $table->unsignedBigInteger('patient_id');
             $table->date('insert_date');
             $table->date('removal_date');
+            
             $table->timestamps();
         });
     }

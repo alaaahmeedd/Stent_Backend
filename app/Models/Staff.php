@@ -25,6 +25,8 @@ class Staff extends Authenticatable implements JWTSubject
 
 
     protected $fillable = [
+        'department_id',
+        'hospital_id',
         'f_name',
         'l_name',
         'email',
@@ -40,4 +42,21 @@ class Staff extends Authenticatable implements JWTSubject
         'password',
     
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function hospital()
+    {
+        return $this->belongsTo(Hospital::class);
+    }
+
+    public function patients()
+    {
+        return $this->hasMany(Patient::class);
+    }
+
+
 }

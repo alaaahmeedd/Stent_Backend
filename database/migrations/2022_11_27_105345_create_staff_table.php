@@ -15,6 +15,8 @@ class CreateStaffTable extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('hospital_id');
             $table->string('f_name');
             $table->string('l_name');
             $table->string('email');
@@ -23,6 +25,8 @@ class CreateStaffTable extends Migration
             $table->string('phone');
             $table->string('position');
             $table->boolean('is_admin')->default(false);
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
             $table->timestamps();
         });
     }

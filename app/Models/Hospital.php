@@ -12,4 +12,9 @@ class Hospital extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function staff()
+    {
+        return $this->hasMany(Staff::class);
+    }
 }

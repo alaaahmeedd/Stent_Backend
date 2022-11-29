@@ -14,4 +14,14 @@ class StentPatient extends Model
         'removal_date',
      
     ];
+
+    public function patients()
+    {
+        return $this->belongsToMany(Patient::class);
+    }
+
+    public function stentTypes()
+    {
+        return $this->belongsToMany(StentType::class);
+    }
 }

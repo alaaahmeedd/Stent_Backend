@@ -10,8 +10,19 @@ class StentType extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Name',
-        'DaysLeft'
+        'department_id',
+        'name',
+        'days_left'
 
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function stentPatients()
+    {
+        return $this->belongsToMany(StentPatient::class);
+    }
 }

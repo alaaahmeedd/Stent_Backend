@@ -32,7 +32,9 @@ class PatientController extends Controller
             'name',
             'email',
             'phone',
-            'birth_date'
+            'birth_date',
+            'create_id',
+            'assign_id'
         ]);
 
         return response()->json(
@@ -59,7 +61,9 @@ class PatientController extends Controller
             'name',
             'email',
             'phone',
-            'birth_date'
+            'birth_date',
+            'create_id',
+            'assign_id'
         ]);
 
         return response()->json([

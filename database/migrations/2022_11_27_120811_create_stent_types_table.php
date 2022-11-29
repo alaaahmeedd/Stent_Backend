@@ -15,8 +15,10 @@ class CreateStentTypesTable extends Migration
     {
         Schema::create('stent_types', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->integer("Days-left");
+            $table->unsignedBigInteger('department_id');
+            $table->string('name');
+            $table->integer('days_left');
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }
